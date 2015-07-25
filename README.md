@@ -14,3 +14,36 @@ Divisão do projeto
 * Classe para interface com usuário (comandos)
 * Classe para interface gráfica
 * Classe para testes
+
+Orientações e recomendações
+---------------------------
+Para participar do projeto serão necessários conhecimentos em Java e no uso do GitHub. 
+Para desenvolver no Windows, recomendo o seguinte aplicativo do github: https://git-scm.com/downloads.
+A seguir estão os principais comandos a serem execultados no terminal; para o Windows use o "Git Bash".
+
+**Principais comandos do github**
+
+Copia repositório para o diretório local
+> git clone https://github.com/geans/barganhou
+
+Para uso constante
+> git status
+
+Adicionando diretórios ou arquivos novos ou modificados no Stage
+> git add <pasta ou arquivo>
+
+Remove arquivos no Stage
+> git rm arquivo.txt
+
+Remove diretório (e seu conteúdo)
+> git rm -r diretório
+
+Remove arquivos que já foram adicionados para commit
+> git rm --cached arquivo.txt
+
+Apenas arquivos no Stage podem ser commitados (o primeiro abrirá um editor)
+> git commit
+> git commit -m "Mensagem"
+
+Para mandar os arquivos "commitados" para o repositório, será pedido usuário e senha
+> git push
