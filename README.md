@@ -17,9 +17,10 @@ Divisão do projeto
 
 Orientações e recomendações
 ---------------------------
-Para participar do projeto serão necessários conhecimentos em Java e no uso do GitHub. 
+Para participar do projeto serão necessários conhecimentos em Java e no uso do GitHub.
+
 Para desenvolver no Windows, recomendo o seguinte aplicativo do github: https://git-scm.com/downloads.
-A seguir estão os principais comandos a serem execultados no terminal; para o Windows use o "Git Bash".
+A seguir estão os principais comandos do git a serem execultados no terminal; para o Windows use o "Git Bash".
 
 **Principais comandos do github**
 
