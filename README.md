@@ -30,7 +30,7 @@ Para uso constante
 > git status
 
 Adicionando diretórios ou arquivos novos ou modificados no Stage
-> git add <pasta ou arquivo>
+> git add arquivo.txt
 
 Remove arquivos no Stage
 > git rm arquivo.txt
