@@ -4,7 +4,7 @@ Aplicativo para catálogo e comparação de preços
 
 Objetivos
 ---------
-* Fazer registro de preços de produtos  
+* Fazer registro de preços de produtos
 * Manter estatísticas da média e variância desses preços
 
 Divisão do projeto
@@ -48,3 +48,6 @@ Apenas arquivos no Stage podem ser commitados (o primeiro abrirá um editor)
 
 Para mandar os arquivos "commitados" para o repositório, será pedido usuário e senha
 > git push
+
+Atualizar cópia do repositório
+> git pull
