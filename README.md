@@ -57,6 +57,7 @@ Ambiente de Desenvolvimento
 Eclipse.
 
 **Importando o projeto para eclipse:**
-1. File -> Import... -> General -> Existing Projects into Workspace
-2. Procure pelo diretório do projeto através do botão "Browse..."
-3. Clique em "Finish"
+
+1. File -> Import... -> General -> Existing Projects into Workspace  
+2. Procure pelo diretório do projeto através do botão "Browse..."  
+3. Clique em "Finish"  
