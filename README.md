@@ -51,3 +51,7 @@ Para mandar os arquivos "commitados" para o repositório, será pedido usuário 
 
 Atualizar cópia do repositório
 > git pull
+
+Ambiente de Desenvolvimento
+---------------------------
+Eclipse
