@@ -6,6 +6,7 @@ Objetivos
 ---------
 * Fazer registro de preços de produtos
 * Manter estatísticas da média e variância desses preços
+* Fazer previsão de gastos em compras
 
 Divisão do projeto
 ------------------
