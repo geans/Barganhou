@@ -16,19 +16,23 @@ Divisão do projeto
 * Classe para interface gráfica
 * Classe para testes
 
-Orientações e recomendações
+Diretivas
 ---------------------------
-Para participar do projeto serão necessários conhecimentos em Java e no uso do GitHub.
+Para o projeto serão utilizados:
+* Linguagem Python 3
+* Django
+* AngularJS
+* Mysql
+* Repositório no GitHub
 
-Para desenvolver no Windows, recomendo o seguinte aplicativo do github: https://git-scm.com/downloads.
-A seguir estão os principais comandos do git a serem execultados no terminal; para o Windows use o "Git Bash".
+A seguir estão os principais comandos do git a serem execultados no terminal.
 
 **Principais comandos do github**
 
 Copia repositório para o diretório local
 > git clone https://github.com/geans/barganhou
 
-Para uso constante
+Para verificar arquivos alterados e adicionados ou não no Stage
 > git status
 
 Adicionando diretórios ou arquivos novos ou modificados no Stage
@@ -43,7 +47,7 @@ Remove diretório (e seu conteúdo)
 Remove arquivos que já foram adicionados para commit
 > git rm --cached arquivo.txt
 
-Apenas arquivos no Stage podem ser commitados (o primeiro abrirá um editor)
+Apenas arquivos no Stage podem ser commitados (o primeiro comando abrirá o editor padrão para escrita da mensagem)
 > git commit
 > git commit -m "Mensagem"
 
@@ -55,10 +59,8 @@ Atualizar cópia do repositório
 
 Ambiente de Desenvolvimento
 ---------------------------
-Eclipse.
 
-**Importando o projeto para eclipse:**
 
-1. File -> Import... -> General -> Existing Projects into Workspace  
-2. Procure pelo diretório do projeto através do botão "Browse..."  
-3. Clique em "Finish"  
+Características do projeto
+--------------------------
+* Interface web para adesão de instância no banco de dados através de um formulário
