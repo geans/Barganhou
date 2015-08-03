@@ -1,66 +1,66 @@
 Barganhou
 =========
-Aplicativo para cat√°logo e compara√ß√£o de pre√ßos
+Aplicativo para cat·logo e comparaÁ„o de preÁos
 
 Objetivos
 ---------
-* Fazer registro de pre√ßos de produtos
-* Manter estat√≠sticas da m√©dia e vari√¢ncia desses pre√ßos
-* Fazer previs√£o de gastos em compras
+* Fazer registro de preÁos de produtos
+* Manter estatÌsticas da mÈdia e vari‚ncia desses preÁos
+* Fazer previs„o de gastos em compras
 
-Divis√£o do projeto
+Divis„o do projeto
 ------------------
-* Classe para intera√ß√£o com o banco de dados
-* Classe para c√°lculos estat√≠sticos
-* Classe para interface com usu√°rio (comandos)
-* Classe para interface gr√°fica
+* Classe para interaÁ„o com o banco de dados
+* Classe para c·lculos estatÌsticos
+* Classe para interface com usu·rio (comandos)
+* Classe para interface gr·fica
 * Classe para testes
 
 Diretivas
 ---------------------------
-Para o projeto ser√£o utilizados:
+Para o projeto ser„o utilizados:
 * Linguagem Python 3
 * Django
 * AngularJS
 * Mysql
-* Reposit√≥rio no GitHub
+* RepositÛrio no GitHub
 
-A seguir est√£o os principais comandos do git a serem execultados no terminal.
+A seguir est„o os principais comandos do git a serem execultados no terminal.
 
 **Principais comandos do github**
 
-Copia reposit√≥rio para o diret√≥rio local
+Copia repositÛrio para o diretÛrio local
 > git clone https://github.com/geans/barganhou
 
-Para verificar arquivos alterados e adicionados ou n√£o no Stage
+Para verificar arquivos alterados e adicionados ou n„o no Stage
 > git status
 
-Adicionando diret√≥rios ou arquivos novos ou modificados no Stage
+Adicionando diretÛrios ou arquivos novos ou modificados no Stage
 > git add arquivo.txt
 
 Remove arquivos no Stage
 > git rm arquivo.txt
 
-Remove diret√≥rio (e seu conte√∫do)
-> git rm -r diret√≥rio
+Remove diretÛrio (e seu conte˙do)
+> git rm -r diretÛrio
 
-Remove arquivos que j√° foram adicionados para commit
+Remove arquivos que j· foram adicionados para commit
 > git rm --cached arquivo.txt
 
-Apenas arquivos no Stage podem ser commitados (o primeiro comando abrir√° o editor padr√£o para escrita da mensagem)
+Apenas arquivos no Stage podem ser commitados (o primeiro comando abrir· o editor padr„o para escrita da mensagem)
 > git commit
 > git commit -m "Mensagem"
 
-Para mandar os arquivos "commitados" para o reposit√≥rio, ser√° pedido usu√°rio e senha
+Para mandar os arquivos "commitados" para o repositÛrio, ser· pedido usu·rio e senha
 > git push
 
-Atualizar c√≥pia do reposit√≥rio
+Atualizar cÛpia do repositÛrio
 > git pull
 
 Ambiente de Desenvolvimento
 ---------------------------
 
 
-Caracter√≠sticas do projeto
+CaracterÌsticas do projeto
 --------------------------
-* Interface web para ades√£o de inst√¢ncia no banco de dados atrav√©s de um formul√°rio
+* Interface web para ades„o de inst‚ncia no banco de dados atravÈs de um formul·rio

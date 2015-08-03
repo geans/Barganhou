@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename method &apos;DBManager.mprint(...)&apos; to &apos;debug&apos;&#x0A;- Original project: &apos;application&apos;&#x0A;- Original element: &apos;DBManager.mprint(...)&apos;&#x0A;- Renamed element: &apos;DBManager.debug(...)&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;mprint&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{DBManager.java[DBManager~mprint~QString;" name="debug" references="true" stamp="1438002205573" version="1.0"/>
-</session>
