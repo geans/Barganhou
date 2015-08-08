@@ -2,31 +2,18 @@ import mysql.connector
 from mysql.connector import errorcode
 from datetime import date, datetime, timedelta
 
-#DB_NAME = 'productlog'
-#TABLE_SCHEME = ("CREATE TABLE `product`("
-#                "  `id` int(11) NOT NULL AUTO_INCREMENT,"
-#                "  `product_name` varchar(20) NOT NULL,"
-#                "  `price` float NOT NULL,"
-#                "  `amount` int(4) NOT NULL,"
-#                "  `date_buy` date NOT NULL,"
-#                "  `local` varchar(20),"
-#                "  PRIMARY KEY (`id`)"
-#                ")")
-
 class DBHandle ():
     def __init__ (self, user, password, host):
         self.user = user
         self.password = password
         self.host = host
-        #self.database = DB_NAME
-        #self.table_scheme = TABLE_SCHEME
     
-    def __connect (self):
+    def __connect_sql (self):
         self.connetion = mysql.connector.connect(self.user, self.database)
         self.cursor = self.connetion.cursor()
 
 
-    def __disconnect (self):
+    def __disconnect_sql (self):
         self.cursor.close()
         self.connetion.close()
 
@@ -49,7 +36,7 @@ class DBHandle ():
                         "  PRIMARY KEY (`id`)"
                         ")")
         try:
-            cursor.execute(table_scheme)
+            self.cursor.execute(table_scheme)
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
                 print("Failed to create table: already exists.")
@@ -59,12 +46,12 @@ class DBHandle ():
     
     def __connect_database (self, database_name = 'productlog'):
         try:
-            connetion.database = database_name    
+            self.connetion.database = database_name    
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_BAD_DB_ERROR:
                 self.__create_database(database_name)
                 self.__create_table();
-                connetion.database = database_name
+                self.connetion.database = database_name
             else:
                 print(err)
     
