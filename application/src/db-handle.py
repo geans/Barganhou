@@ -4,37 +4,39 @@ from datetime import date, datetime, timedelta
 
 class DBHandle ():
     def __init__ (self, user, password, host):
-        self.user = user
-        self.password = password
-        self.host = host
+        self.config = {user, password, host}
+        self.table_name = 'products'
+        self.database_name = 'productlog'
     
-    def __connect_sql (self):
-        self.connetion = mysql.connector.connect(self.user, self.database)
+    def __connect (self):
+        self.connetion = mysql.connector.connect(**self.config)
+        self.__select_database()
         self.cursor = self.connetion.cursor()
 
 
-    def __disconnect_sql (self):
+    def __disconnect (self):
         self.cursor.close()
         self.connetion.close()
 
 
-    def __create_database (self, database_name):
+    def __create_database (self):
         try:
-            cursor.execute("CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(database_name))
+            cursor.execute("CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(self.database_name))
         except mysql.connector.Error as err:
             print("Failed creating database: {}".format(err))
     
     
     def __create_table (self):
-        table_scheme = ("CREATE TABLE `product`("
+        table_scheme = ("CREATE TABLE `{}`("
                         "  `id` int(11) NOT NULL AUTO_INCREMENT,"
                         "  `product_name` varchar(20) NOT NULL,"
                         "  `price` float NOT NULL,"
                         "  `amount` int(4) NOT NULL,"
-                        "  `date_buy` date NOT NULL,"
+                        "  `date_log` date NOT NULL,"
                         "  `local` varchar(20),"
+                        "  `pucharse` enum('y', 'n'),"
                         "  PRIMARY KEY (`id`)"
-                        ")")
+                        ")".format(self.table_name))
         try:
             self.cursor.execute(table_scheme)
         except mysql.connector.Error as err:
@@ -44,22 +46,46 @@ class DBHandle ():
                 print(err.msg)
     
     
-    def __connect_database (self, database_name = 'productlog'):
+    def __select_database (self):
         try:
-            self.connetion.database = database_name    
+            self.connetion.database = self.database_name    
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_BAD_DB_ERROR:
-                self.__create_database(database_name)
+                self.__create_database()
+                self.connetion.database = self.database_name
                 self.__create_table();
-                self.connetion.database = database_name
             else:
                 print(err)
     
     
-    def insert_instance (self, product_name, price, amount, date_buy, local=''):
-        add_scheme = ("INSERT INTO productlog "
-                      "(product_name, price, amount, date_buy, local"
-                      "VALUES (%s, %s, %s, %s, %s)")
-        datalog = (product_name, price, amount, date_buy, local)
-        self.cursor.execute(add_scheme, datalog)
+    def bulk_insert (self, product_name, price, amount, date_log, local, pucharse):
+        self.__connect()
+        add_scheme = ("INSERT INTO {} "
+                      "(product_name, price, amount, date_log, local, pucharse"
+                      "VALUES (%s, %s, %s, %s, %s, %s)".format(self.table_name))
+        compare = tuple is type(product_name) is type(price) is type(amount) is type(date_log)
+        compare = (tuple is type(local) is type(pucharse)) is compare is True
+        if compare:
+            number_tuples = min(len(product_name), len(price), len(amount),
+                                len(date_log), len(local), len(pucharse))
+            i = 0
+            while i < number_tuples:
+                datalog = (product_name[i], price[i], amount[i], date_log[i], local[i], pucharse[i])
+                self.cursor.execute(add_scheme, datalog)
+                i += 1
+            self.connetion.commit()
+        else:
+            datalog = (product_name, price, amount, date_log, local, pucharse)
+            self.cursor.execute(add_scheme, datalog)
         self.connetion.commit()
+        self.__disconnect()
+
+
+    def query_by_name (self, product_name):
+        self.__connect()
+        select_scheme = ("SELECT {} FROM {} WHERE "
+            "product_name = %s".format(product_name, self.table_name))
+        self.cursor.execute(select_scheme, product_name)
+        self.__disconnect()
+
+
