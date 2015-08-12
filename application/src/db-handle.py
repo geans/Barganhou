@@ -2,16 +2,6 @@ import mysql.connector
 from mysql.connector import errorcode
 from datetime import date, datetime, timedelta
 
-class DataCollection ():
-    def add (product_name, price, amount, date_log, local, pucharse):
-        self.product_name = product_name
-        self.price = price
-        self.amount = amount
-        self.date_log = date_log
-        self.local = local
-        self.pucharse = pucharse
-
-
 class DBHandle ():
     def __init__ (self, user, password, host):
         self.config = {user, password, host}
@@ -105,6 +95,11 @@ class DBHandle ():
     
     
     def __str__(self):
-        return 
+        return "  Config: {}\n  Database name: {}\n  Table name: {}".format(
+                self.config, self.database_name, self.table_name)
 
 
+
+x = ProductInfo()
+x.add('feijão', 3.5, 3, date(2015,8,8), 'Atacadão', 'yes')
+print (x)
