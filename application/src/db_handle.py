@@ -75,20 +75,29 @@ class DBHandle ():
 
 
     def query_by_name (self, product_name):
+        return self.__query('product_name = %s', product_name)
+    
+    
+    def query_by_local (self, local):
+        return self.__query('local = %s', local)
+    
+    
+    def query_between_dates (self, date_start, date_end):
+        return self__query('date_log BETWEEN %s AND %s', (date_start, date_end))
+
+    
+    def __query (self, collunm, criterion):
         self.__connect()
-        select_scheme = ("SELECT {} FROM {} WHERE "
-            "product_name = %s".format('product_name', self.table_name))
-        self.cursor.execute(select_scheme, product_name)
+        select_scheme = ("SELECT * FROM {} WHERE "
+            "{}".format(self.table_name, collunm))
+        self.cursor.execute(select_scheme, criterion)
+        result = []
+        for (product_name, price, amount, date_log, local, pucharse) in self.cursor:
+            result.append((product_name, price, amount, date_log, local, pucharse))
         self.__disconnect()
+        return result
     
     
     def __str__(self):
         return "  Config: {}\n  Database name: {}\n  Table name: {}".format(
                 self.config, self.database_name, self.table_name)
-
-
-
-x = ProductInfo()
-x.add('feijão', 3.5, 3, date(2015,8,8), 'Atacadão', 'yes')
-h = x.pop()
-print (h)
