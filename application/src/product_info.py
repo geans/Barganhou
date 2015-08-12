@@ -23,9 +23,6 @@ class ProductInfo ():
 
     
     def __str__ (self):
-        return "{}, {}, {}, {}, {}, {}".format(*self.get())
-
-
-
+        return "{}".format(self.queue)
 
 
