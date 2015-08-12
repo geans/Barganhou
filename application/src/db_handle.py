@@ -1,15 +1,16 @@
 import mysql.connector
+from product_info import ProductInfo
 from mysql.connector import errorcode
 from datetime import date, datetime, timedelta
 
 class DBHandle ():
     def __init__ (self, user, password, host):
-        self.config = {user, password, host}
+        self.config = (user, password, host)
         self.table_name = 'products'
         self.database_name = 'productlog'
     
     def __connect (self):
-        self.connetion = mysql.connector.connect(**self.config)
+        self.connetion = mysql.connector.connect(*self.config)
         self.__select_database()
         self.cursor = self.connetion.cursor()
 
@@ -59,37 +60,24 @@ class DBHandle ():
                 print(err)
     
     
-    def bulk_insert (self, bulk_data, number_instances):
+    def bulk_insert (self, bulk_data):
+        if not(type(bulk_data) is ProductInfo):
+            return None
         self.__connect()
         add_scheme = ("INSERT INTO {} "
                       "(product_name, price, amount, date_log, local, pucharse"
                       "VALUES (%s, %s, %s, %s, %s, %s)".format(self.table_name))
-        compare = tuple is type(product_name) is type(price) is type(amount)
-        compare = (tuple is type(date_log)is type(local) is type(pucharse)) is compare
-        compare = compare is True
-        number_tuples = 1
-        if compare:
-            number_tuples = min(len(product_name), len(price), len(amount),
-                                len(date_log), len(local), len(pucharse))
-            i = 0
-            while i < number_tuples:
-                datalog = (product_name[i], price[i], amount[i])
-                datalog += (date_log[i], local[i], pucharse[i])
-                self.cursor.execute(add_scheme, datalog)
-                i += 1
-            self.connetion.commit()
-        else:
-            datalog = (product_name, price, amount, date_log, local, pucharse)
-            self.cursor.execute(add_scheme, datalog)
+        while not bulk_data.is_empty():
+            self.cursor.execute(add_scheme, bulk_data.pop())
         self.connetion.commit()
         self.__disconnect()
-        return number_tuples
+        return 0
 
 
     def query_by_name (self, product_name):
         self.__connect()
         select_scheme = ("SELECT {} FROM {} WHERE "
-            "product_name = %s".format(product_name, self.table_name))
+            "product_name = %s".format('product_name', self.table_name))
         self.cursor.execute(select_scheme, product_name)
         self.__disconnect()
     
@@ -102,4 +90,5 @@ class DBHandle ():
 
 x = ProductInfo()
 x.add('feijão', 3.5, 3, date(2015,8,8), 'Atacadão', 'yes')
-print (x)
+h = x.pop()
+print (h)
