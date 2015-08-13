@@ -3,8 +3,8 @@ class ProductInfo ():
         self.__queue = []
     
     
-    def add (self, _product_name, _price, _amount, _date_log, _local, _pucharse):
-        self.__queue.append((_product_name, _price, _amount, _date_log, _local, _pucharse))
+    def add (self, product_name, price, amount, date_log, local, pucharse):
+        self.__queue.append((product_name, price, amount, date_log, local, pucharse))
         
      
     def pop (self):
