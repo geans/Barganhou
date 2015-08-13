@@ -10,12 +10,12 @@ datalog = ('leite pó', 3.0, 10, (8,8,2015), 'Atacadão', 'yes')
 datalog2 = (('leite pó', 3.0, 10, (8,8,2015), 'Atacadão', 'yes'),
             ('macarrão', 1.5, 8, (8,8,2015), 'Atacadão', 'yes'))
 
-def test_DBHandle_insert_query ():
+def test_DBHandle ():
     assertEqual(dbh.bulk_insert(*datalog), 0)
     assertEqual(dbh.bulk_insert(*datalog2), 0)
 
 
-def test_ProductInfo_add_pop_size():
+def test_ProductInfo ():
     x = ProductInfo()
     x.add(*datalog)
     assertEqual(datalog, x.pop())
