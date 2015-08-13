@@ -1,2 +1,5 @@
 # Executables
 *.exe
+
+# Python folder cache
+__pycache__
