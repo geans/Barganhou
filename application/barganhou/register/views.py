@@ -18,9 +18,3 @@ def detail (request, product_id):
     locale.setlocale(locale.LC_ALL, "")
     return render(request, 'register/detail.html',
         {'product': product, 'price': price})
-
-def price (request, product_id):
-    return HttpResponse("Você está vendo o preço do produto %s." % product_id)
-    
-def local (request, product_id):
-    return HttpResponse("Você está vendo o local de registro do produto %s." % product_id)

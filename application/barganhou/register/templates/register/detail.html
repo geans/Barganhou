@@ -1,5 +1,12 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}" />
+
+<body>
 <h1>Produto: {{ product.name }}</h1>
+<hr>
 <ul>
     <li>Preço: R$ {{ price }}</li>
     <li>Local: {{ product.local }}</li>
 </ul>
+<a href="/register/">Voltar</a>
+</body>

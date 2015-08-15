@@ -1,0 +1,18 @@
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+body {
+	font-family: arial; verdana;
+    background-color: linen;
+	margin-left: 40px
+}
+
+h1 {
+    color: maroon;
+}
+
+th {
+	margin-left: 15px
+}

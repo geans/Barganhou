@@ -1,9 +1,27 @@
-{% if latest_product_list %}
-    <ul>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}" />
+
+<body>
+<h1>Informações de Produtos</h1>
+<hr><br>
+<table border="1">
+    {% if latest_product_list %}
+    <tr><th>Nome/descrição</th><th>Preço</th><th>Local</th></tr>
     {% for product in latest_product_list %}
-        <li><a href="/register/{{ product.id }}/">{{ product.name }}</a></li>
+    <tr>
+        <td>
+        <a href="{% url 'register:detail' product.id %}">{{ product.name }}</a>
+        </td>
+        <td>
+        {{ product.price }}
+        </td>
+        <td>
+        {{ product.local }}
+        </td>
+    </tr>
     {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+    {% else %}
+        <p>Nenhum produto disponível.</p>
+    {% endif %}
+</table>
+</body>
