@@ -1,36 +1,37 @@
 Barganhou
 =========
-Aplicativo para cat·logo e comparaÁ„o de preÁos
+Aplicativo para cat√°logo e compara√ß√£o de pre√ßos
 
 Objetivos
 ---------
-* Fazer registro de preÁos de produtos
-* Manter estatÌsticas da mÈdia e vari‚ncia desses preÁos
-* Fazer previs„o de gastos em compras
+* Fazer registro de pre√ßos de produtos
+* Manter estat√≠sticas da m√©dia e vari√¢ncia desses pre√ßos
+* Fazer previs√£o de gastos em compras
 
-Divis„o do projeto
+Divis√£o do projeto
 ------------------
-* Classe para interaÁ„o com o banco de dados
-* Classe para c·lculos estatÌsticos
-* Classe para interface com usu·rio (comandos)
-* Classe para interface gr·fica
+* Classe para intera√ß√£o com o banco de dados
+* Classe para c√°lculos estat√≠sticos
+* Classe para interface com usu√°rio (comandos)
+* Classe para interface gr√°fica
 * Classe para testes
 
 Diretivas
 ---------------------------
-Para o projeto ser„o utilizados:
+Para o projeto ser√£o utilizados:
 * Linguagem Python
 * Django
 * AngularJS
-* Mysql
-* RepositÛrio no GitHub
+* Sql
+* Reposit√≥rio no GitHub
 
 Ambiente de Desenvolvimento
 ---------------------------
-* Python 2.7.6
-* Mysql Connector lib to Python: http://dev.mysql.com/downloads/connector/python/
-* Mysql 5.6
+* Python 3.4.3
+* Djando 1.8.3
+* Banco de dados sqlite
 
-CaracterÌsticas do projeto
+Caracter√≠sticas do projeto
 --------------------------
-* Interface web para ades„o de inst‚ncia no banco de dados atravÈs de um formul·rio
+* Interface web para ades√£o das informa√ß√µes no banco de dados pela p√°gina de administrador do Django
+* Interface web para visualiza√ß√£o dos produtos
