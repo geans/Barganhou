@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext, loader
 from .models import ProductInfo
 
@@ -9,10 +9,11 @@ def index (request):
     context = RequestContext(request, {
         'latest_product_list': latest_product_list,
     })
-    return render(request, 'polls/index.html', context)
+    return render(request, 'register/index.html', context)
 
 def detail (request, product_id):
-    return HttpResponse("Você está vendo detalhes do produto %s." % product_id)
+    product = get_object_or_404(ProductInfo, pk=product_id)
+    return render(request, 'register/detail.html', {'product': product})
 
 def price (request, product_id):
     return HttpResponse("Você está vendo o preço do produto %s." % product_id)
