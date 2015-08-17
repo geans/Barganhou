@@ -3,6 +3,3 @@
 
 # Python folder cache
 __pycache__
-
-# Django folder
-migrations
