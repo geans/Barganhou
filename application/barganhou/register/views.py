@@ -14,7 +14,5 @@ def index (request):
 
 def detail (request, product_id):
     product = get_object_or_404(ProductInfo, pk=product_id)
-    price = locale.format("%1.2f", product.price, 1)
-    locale.setlocale(locale.LC_ALL, "")
     return render(request, 'register/detail.html',
-        {'product': product, 'price': price})
+        {'product': product})
