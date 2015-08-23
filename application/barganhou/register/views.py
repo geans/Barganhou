@@ -1,14 +1,17 @@
-from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext, loader
 from .models import ProductInfo
-import locale
 
 def index (request):
-    latest_product_list = ProductInfo.objects.all()
+    product_list = ProductInfo.objects.all()
     template = loader.get_template('register/index.html')
+    product_dict = []
+    for product in product_list:
+        product_dict.append(product.dict())
+    
     context = RequestContext(request, {
-        'latest_product_list': latest_product_list,
+        'product_list': product_list,
+		'product_dict': product_dict,
     })
     return render(request, 'register/index.html', context)
 

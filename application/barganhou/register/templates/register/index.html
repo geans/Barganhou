@@ -6,55 +6,27 @@
     <title>Informações de produtos registrados</title>
     <!-- Incluindo o AngularJS - Google's CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="{% static 'register/script.js' %}"></script>
-
+    <script src="{% static 'register/angular_app_define.js' %}"></script>
+    <!--<script src="js/angular-locale_pt-br.js"></script>-->
+    
     <link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}" />
 </head>
 
-<body ng-app="register" ng-controller="InstantSearchController">
+<body ng-app="register">
     <h1>Informações de Produtos</h1>
     <hr>
     
-    <div class="test" ng-init="x=d">
-        <li ng-repeat="i in {{latest_product_list}} | filter:searchString">
-            <p>[[ i.name ]]</p><p>[[ i.price ]]</p><p>[[ i.local ]]</p>
-            <!--<p>[[i.name]], [[i.price]], [[i.local]]</p>-->
-        </li>
-    </div>
-    
     <div class="bar">
-        <!-- Crie uma ligação entre o modelo searchString e o campo de texto -->
+        <!-- Ligação entre o modelo searchString e o campo de texto -->
         <input type="text" ng-model="searchString" placeholder="Digite seu termo de pesquisa">
     </div>
 
     <ul>
-        <!-- Renderize um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
-        <li ng-repeat="i in items | filter:searchString">
-            <a href="[[ i.url ]]"><img ng-src="[[ i.image ]]"></a>
-            <p>[[ i.title ]]</p>
-            <!--<p>[[i.name]], [[i.price]], [[i.local]]</p>-->
+        <!-- Renderiza um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
+        <li ng-repeat="i in {{product_dict}} | filter:searchString">
+            Nome: <a href="/register/[[i.id]]/">[[i.name]]</a>
+            <br> Preço: [[i.price | currency:'R$ ']] <br> Local: [[i.local]]
         </li>
     </ul>
-            
-    <table border="1">
-        {% if latest_product_list %}
-        <tr><th>Nome/descrição</th><th>Preço</th><th>Local</th></tr>
-        {% for product in latest_product_list %}
-        <tr>
-            <td>
-            <a href="{% url 'register:detail' product.id %}">{{ product.name }}</a>
-            </td>
-            <td>
-            {{ product.price }}
-            </td>
-            <td>
-            {{ product.local }}
-            </td>
-        </tr>
-        {% endfor %}
-        {% else %}
-        <p>Nenhum produto disponível.</p>
-        {% endif %}
-    </table>
 </body>
 </html>
