@@ -5,7 +5,7 @@ from .models import ProductInfo
 import locale
 
 def index (request):
-    latest_product_list = ProductInfo.objects.order_by('-date_log')[:5]
+    latest_product_list = ProductInfo.objects.all()
     template = loader.get_template('register/index.html')
     context = RequestContext(request, {
         'latest_product_list': latest_product_list,
