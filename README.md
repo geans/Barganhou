@@ -1,20 +1,16 @@
 Barganhou
 =========
-Aplicativo para catálogo e comparação de preços
+Aplicativo para catálogo, comparação de preços e elaboração de lista de compras.
 
 Objetivos
 ---------
 * Fazer registro de preços de produtos
-* Manter estatísticas da média e variância desses preços
 * Fazer previsão de gastos em compras
+* Manter estatísticas da média e variância desses preços
 
 Divisão do projeto
 ------------------
-* Classe para interação com o banco de dados
-* Classe para cálculos estatísticos
-* Classe para interface com usuário (comandos)
-* Classe para interface gráfica
-* Classe para testes
+O projeto é dividido conforme padrão de desenvolvimento MVC (Model, View, Controller).
 
 Diretivas
 ---------------------------
