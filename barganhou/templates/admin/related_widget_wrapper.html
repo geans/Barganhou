@@ -1,0 +1,30 @@
+{% load i18n admin_static %}
+<div class="related-widget-wrapper">
+    {{ widget }}
+    {% block links %}
+        {% if can_change_related %}
+        <a class="related-widget-wrapper-link change-related" id="change_id_{{ name }}"
+            data-href-template="{{ change_related_template_url }}?{{ url_params }}"
+            title="{% blocktrans %}Editar {{ model }} selecionado{% endblocktrans %}">
+            <img src="{% static 'admin/img/icon_changelink.gif' %}" width="10" height="10"
+                alt="{% trans 'Editar' %}"/>
+        </a>
+        {% endif %}
+        {% if can_add_related %}
+        <a class="related-widget-wrapper-link add-related" id="add_id_{{ name }}"
+            href="{{ add_related_url }}?{{ url_params }}"
+            title="{% blocktrans %}Adicionado outro {{ model }}{% endblocktrans %}">
+            <img src="{% static 'admin/img/icon_addlink.gif' %}" width="10" height="10"
+                alt="{% trans 'Adicionar' %}"/>
+        </a>
+        {% endif %}
+        {% if can_delete_related %}
+        <a class="related-widget-wrapper-link delete-related" id="delete_id_{{ name }}"
+            data-href-template="{{ delete_related_template_url }}?{{ url_params }}"
+            title="{% blocktrans %}Deletar {{ model }} selecionado{% endblocktrans %}">
+            <img src="{% static 'admin/img/icon_deletelink.gif' %}" width="10" height="10"
+                alt="{% trans 'Deletar' %}"/>
+        </a>
+        {% endif %}
+    {% endblock %}
+</div>

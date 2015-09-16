@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='index'),
     url(r'^(?P<product_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^cart/', views.cart, name='cart'),
 ]

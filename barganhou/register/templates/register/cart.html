@@ -3,33 +3,44 @@
 {% load staticfiles %}
 <head>
     <meta charset="UTF-8">
-    <title>Informações de produtos registrados</title>
+    <title>Carrinho de compras</title>
     <!-- Incluindo o AngularJS - Google's CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="{% static 'register/angular_app_define.js' %}"></script>
+    <script src="{% static 'register/shopping_cart.js' %}"></script>
     <!--<script src="js/angular-locale_pt-br.js"></script>-->
     
     <link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}" />
 </head>
 
-<body ng-app="register">
-    <h1>Informações de Produtos</h1>
+<body ng-app="shopping_cart" ng-controller="ShoppingCartController">
+    <h1>Carrinho de compras</h1>
     
-    <a href="{% url 'register:cart' %}">Criar carrinho</a>
+    <a href="{% url 'register:index' %}">Pesquisar produtos</a>
     
     <div class="bar">
         <!-- Ligação entre o modelo searchString e o campo de texto -->
         <input type="text" ng-model="searchString" placeholder="Digite seu termo de pesquisa">
     </div>
-
     <ul>
         <!-- Renderiza um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
         <li ng-repeat="i in {{product_dict}} | filter:searchString">
-            <a href="/register/[[i.id]]/"><div border-style="solid">
+            w2WWw2w22222222W2W 65 V\XXX<a href="" ng-click="addItemCart(i)"><div>
                 Nome: [[i.name]]
                 <br> Preço: [[i.price | currency:'R$ ']] <br> Local: [[i.local]]
             </div></a>
         </li>
     </ul>
+
+    <div>
+        <h3>Itens selecionados</h3>
+        <ul>
+            <li ng-repeat="i in cart">
+                <a href="" ng-click="removeItemCart(i)"><div>
+                    Nome: [[i.name]]
+                    <br> Preço: [[i.price | currency:'R$ ']] <br> Local: [[i.local]]
+                </div></a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
