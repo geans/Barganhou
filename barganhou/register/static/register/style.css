@@ -38,16 +38,11 @@ section, footer, header, aside, nav {
 
 .bar {
 	background-color: #5C9BB7;
-
-	background-image:-webkit-linear-gradient(top, #5c9bb7, #5392ad);
-	background-image:-moz-linear-gradient(top, #5c9bb7, #5392ad);
-	background-image:linear-gradient(top, #5c9bb7, #5392ad);
-
 	box-shadow: 0 1px 1px #CCC;
 	border-radius: 2px;
 	width: 250px;
-	padding: 14px;
-	margin: 80px auto 20px;
+	padding: 5px;
+	margin: 10px auto 20px;
 	position: relative;
 }
 
@@ -82,20 +77,6 @@ ul li {
 	border-bottom: 1px solid #DDD;
 	padding: 10px;
 	overflow: hidden;
-}
-
-ul li img {
-	width:60px;
-	height:60px;
-	float:left;
-	border:none;
-}
-
-ul li p {
-	margin-left: 75px;
-	font-weight: bold;
-	padding-top: 12px;
-	color:#6E7A7F;
 }
 
 .col_left {

@@ -50,9 +50,9 @@ class LocalInfo (models.Model):
          
 
 class ProductInfo (models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=11, decimal_places=2)
-    amount = models.IntegerField()
+    amount = models.DecimalField(max_digits=12, decimal_places=3)
     date_log = models.DateField(default=date.today)
     local = models.ForeignKey(LocalInfo)
     pucharse = models.CharField(max_length=3, default='Y',
