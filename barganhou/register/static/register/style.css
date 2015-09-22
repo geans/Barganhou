@@ -45,7 +45,7 @@ section, footer, header, aside, nav {
 
 	box-shadow: 0 1px 1px #CCC;
 	border-radius: 2px;
-	width: 400px;
+	width: 250px;
 	padding: 14px;
 	margin: 80px auto 20px;
 	position: relative;
@@ -73,7 +73,7 @@ section, footer, header, aside, nav {
 
 ul {
 	list-style: none;
-	width: 428px;
+	width: 250px;
 	margin: 0 auto;
 	text-align: left;
 }
@@ -96,6 +96,14 @@ ul li p {
 	font-weight: bold;
 	padding-top: 12px;
 	color:#6E7A7F;
+}
+
+.col_left {
+    float: left;
+}
+
+.col_right {
+    margin-left: 10px;
 }
 
 

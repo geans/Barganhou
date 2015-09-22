@@ -2,13 +2,11 @@ from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext, loader
 from .models import ProductInfo
 
-def get_product_context(_request):
-    product_list = ProductInfo.objects.all()
+def get_product_context(request):
     product_dict = []
-    for product in product_list:
+    for product in ProductInfo.objects.all():
         product_dict.append(product.dict())
-    return RequestContext(_request, {
-        'product_list': product_list,
+    return RequestContext(request, {
 		'product_dict': product_dict,
     })
 

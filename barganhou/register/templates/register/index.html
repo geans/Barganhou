@@ -15,21 +15,26 @@
 <body ng-app="register">
     <h1>Informações de Produtos</h1>
     
-    <a href="{% url 'register:cart' %}">Criar carrinho</a>
-    
-    <div class="bar">
-        <!-- Ligação entre o modelo searchString e o campo de texto -->
-        <input type="text" ng-model="searchString" placeholder="Digite seu termo de pesquisa">
+    <div class="optview">
+        <a href="{% url 'register:cart' %}">Criar carrinho</a>
+        
+        <div class="bar">
+            <!-- Ligação entre o modelo searchString e o campo de texto -->
+            <input type="text" ng-model="searchString" placeholder="Digite seu termo de pesquisa">
+        </div>
     </div>
 
-    <ul>
-        <!-- Renderiza um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
-        <li ng-repeat="i in {{product_dict}} | filter:searchString">
-            <a href="/register/[[i.id]]/"><div border-style="solid">
-                Nome: [[i.name]]
-                <br> Preço: [[i.price | currency:'R$ ']] <br> Local: [[i.local]]
-            </div></a>
-        </li>
-    </ul>
+    <div class="results">
+        <ul>
+            <!-- Renderiza um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
+            <li ng-repeat="i in {{product_dict}} | filter:searchString">
+                <a href="/register/[[i.id]]/"><div border-style="solid">
+                    <b class="col_left">Nome:</b> <span class="col_right">[[i.name]]</span> <br>
+                    <b class="col_left">Preço:</b> <span class="col_right">[[i.price | currency:'R$ ']]</span> <br>
+                    <b class="col_left">Local:</b> <span class="col_right">[[i.local]]</span>
+                </div></a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
