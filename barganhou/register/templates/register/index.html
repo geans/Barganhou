@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}" />
 </head>
 
-<body ng-app="register">
+<body ng-app="register" ng-controller="IndexController">
     <h1>Informações de Produtos</h1>
     
     <div class="optview">
@@ -22,19 +22,40 @@
             <!-- Ligação entre o modelo searchString e o campo de texto -->
             <input type="text" ng-model="searchString" placeholder="Digite seu termo de pesquisa">
         </div>
+        
+        <div>
+            <select ng-model="local.selected">
+                <option value="0" selected>--Todos--</option>
+                {% for opt in locals %}
+                <option value="{{opt.id}}">{{opt.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
     </div>
 
     <div class="results">
-        <ul>
-            <!-- Renderiza um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
-            <li ng-repeat="i in {{product_dict}} | filter:searchString">
-                <a href="/register/[[i.id]]/"><div border-style="solid">
+        <!--ul>
+            <li ng-repeat="i in {{products}} | filter:searchString">
+                <div border-style="solid">
                     <b class="col_left">Nome:</b> <span class="col_right">[[i.name]]</span> <br>
                     <b class="col_left">Preço:</b> <span class="col_right">[[i.price | currency:'R$ ']]</span> <br>
-                    <b class="col_left">Local:</b> <span class="col_right">[[i.local]]</span>
-                </div></a>
+                    <a href="/register/[[i.local_id]]/"><b class="col_left">Local:</b> <span class="col_right">[[i.local]]</span></a>
+                </div>
             </li>
-        </ul>
+        </ul-->
+        
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Local</th>
+        </tr>
+        <tr>
+        <div ng-repeat="i in {{products}} | filter:searchString">
+            <td>[[i.name]]</td>
+            <td>[[i.price | currency:'R$ ']]</td>
+            <td><a href="/register/[[i.local_id]]/">[[i.local]]</a></td>
+        </div>
+        </tr>
     </div>
 </body>
 </html>

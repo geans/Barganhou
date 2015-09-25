@@ -23,8 +23,8 @@
     </div>
     <ul>
         <!-- Renderiza um elemento li para cada entrada no array de itens. Note o filtro de busca customizado "searchFor". Ele pega o valor do modelo searchString como um argumento. -->
-        <li ng-repeat="i in {{product_dict}} | filter:searchString">
-            w2WWw2w22222222W2W 65 V\XXX<a href="" ng-click="addItemCart(i)"><div>
+        <li ng-repeat="i in {{products}} | filter:searchString">
+            <a href="" ng-click="addItemCart(i)"><div>
                 Nome: [[i.name]]
                 <br> Preço: [[i.price | currency:'R$ ']] <br> Local: [[i.local]]
             </div></a>

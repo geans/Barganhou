@@ -38,6 +38,8 @@ class LocalInfo (models.Model):
     street = models.CharField(max_length=300)
     number = models.IntegerField(blank=True, null=True)
     neighborhood = models.CharField(max_length=200)
+    latitude = models.DecimalField(max_digits=10, decimal_places=8, blank=True, null=True)
+    longitude = models.DecimalField(max_digits=10, decimal_places=8, blank=True, null=True)
 
     def dict(self):
         return {'name': self.name, 'state': self.state, 'city': self.city, 
