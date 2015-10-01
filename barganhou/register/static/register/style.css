@@ -87,6 +87,14 @@ ul li {
     margin-left: 10px;
 }
 
+table {
+	margin: 0 auto;
+}
+
+td {
+    text-align: left;
+	padding: 5px;
+}
 
 
 
